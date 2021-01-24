@@ -1,0 +1,121 @@
+.container {
+  border: 3px solid black;
+  width: 550px;
+  height: 550px;
+  padding: 20px;
+  margin: 20px auto;
+  background-image: url(https://i.imgur.com/vk7vEmO.jpg);
+  background-repeat: no-repeat;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+
+.row {
+  width: 248px;
+  line-height: 33px;
+  margin: 10px 0px;
+  padding: 10px 0px;
+}
+
+.textbox {
+  width: 205px;
+}
+
+.day-of-week {
+  font-size: 25px;
+  padding: 0px 10px;
+  font-weight: bold;
+}
+
+.temp {
+  font-size: 20px;
+  text-align: right;
+  padding: 0px 10px;
+}
+
+.fas {
+  font-size: 30px;
+  padding: 0px 10px;
+}
+
+.col-4 {
+  width: 248px;
+}
+
+.container-2 {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px dashed black;
+  padding: 10px;
+  width: 275px;
+  position: relative;
+  top: -467px;
+  left: 220px;
+  height: 465px;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+h1 {
+  font-size: 62px;
+  line-height: 65px;
+  margin: 0 auto;
+  font-weight: bold;
+  padding: 0px, 5px;
+  text-transform: capitalize;
+}
+
+.date-time {
+  font-size: 20px;
+  margin: 0;
+}
+
+.wind,
+.humidity,
+h6 {
+  font-size: 20px;
+  margin: 10px 0px 0px 0px;
+}
+
+.far {
+  padding: 5px 0px;
+  font-size: 130px;
+  width: 178px;
+  text-align: center;
+}
+
+.current-temp {
+  font-size: 85px;
+  text-align: right;
+  line-height: 60px;
+  width: 240px;
+  margin: 0px;
+  padding: 10px 0px 0px 0px;
+  font-weight: bold;
+}
+
+.f,
+.c,
+.line {
+  text-align: right;
+  font-size: 20px;
+  position: relative;
+  top: -50px;
+}
+
+.date-time,
+.city,
+#weather {
+  text-align: right;
+}
+
+a {
+  text-decoration: none;
+}
+
+.foot {
+  font-family: "Courier New", Courier, monospace;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+#button-loc {
+  background-color: rgba(108, 204, 73, 0.3);
+}

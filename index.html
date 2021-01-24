@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/27ed833a1b.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <title>SheCodes Weather App</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <form class="input-box" id="search-form">
+      <input type="search" placeholder="Search a city..." class="textbox" autocomplete="off" autofocus /><input type="submit" id="button" value="GO" /><input type="submit" id="button-loc" value="Current Location" /></form>
+      <div class="row">
+        <div class="col-4">
+          <span class="day-of-week">S:</span>
+          <i class="fas fa-cloud-sun"></i>
+          <span class="temp">
+            <span class="sun-hi">39</span>° / <span class="sun-lo">36</span>°
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <span class="day-of-week" >M:</span>
+          <i class="fas fa-cloud-sun"></i>
+          <span class="temp">
+            <span class="mon-hi">46</span>° / <span class="mon-lo">36</span>°
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <span class="day-of-week">T:</span>
+          <i class="fas fa-cloud-sun"></i>
+          <span class="temp">
+            <span class="tues-hi">54</span>° / <span class="tues-lo">30</span>°
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <span class="day-of-week">W:</span>
+          <i class="fas fa-sun"></i>
+          <span class="temp">
+            <span class="wed-hi">54</span>° / <span class="wed-lo">30</span>°
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <span class="day-of-week">Th:</span>
+          <i class="fas fa-cloud-sun"></i>
+          <span class="temp">
+            <span class="thur-hi">57</span>° / <span class="thur-lo">39</span>°
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <span class="day-of-week">F:</span>
+          <i class="fas fa-cloud-sun"></i>
+          <span class="temp">
+            <span class="fri-hi">52</span>° / <span class="fri-lo">32</span>°
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <span class="day-of-week">S:</span>
+          <i class="fas fa-cloud-sun"></i>
+          <span class="temp">
+            <span class="sat-hi">46</span>° / <span class="sat-lo">28</span>°
+          </span>
+        </div>
+      </div>
+      <div class="container-2">
+        <h6 class="date-time">
+          <span class="fullDate">Dec 26, 2020</span>
+          <br />
+          <span class="time">13:00</span>
+        </h6>
+        <h1 class="city">Atlanta</h1>
+        <h6 id="weather">Sunny</h6>
+        <h2 class="current-temp"><span id="current-temp">55</span><a href="#" id=f-link span class="f">°F</span></a><span class="line">|</span><a href="#" id=c-link span class="c">°C</span></a></h2>
+        <i class="far fa-sun"></i>
+        <h6>
+          Wind: <span class="wind">5</span>mph <br />
+          Humidity: <span class="humidity">5</span>%
+        </h6>
+      </div>
+    </div>
+   <span class="foot">Coded by Perla Oki</span>
+  </body>
+  <script src="src/index.js"></script>
+</html>
