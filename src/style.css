@@ -12,7 +12,7 @@ body {
   height: 550px;
   padding: 20px;
   margin: 20px auto 0px;
-  background: url(https://i.imgur.com/EJ7L0ZKh.jpg) no-repeat;
+  background: url(https://i.imgur.com/Ne6UQg5.jpg) no-repeat;
   font-family: "Open Sans Condensed", sans-serif;
   border-radius: 5px;
 }
@@ -41,9 +41,13 @@ body {
   padding: 0px 10px;
 }
 
-.fas {
-  font-size: 30px;
-  padding: 0px 10px;
+#main-icon {
+  width: 150px;
+  display: block;
+  margin: 0px auto;
+  padding: 0px;
+  position: relative;
+  bottom: 30px;
 }
 
 .col-4 {
@@ -63,7 +67,7 @@ body {
   border-radius: 10px;
 }
 h1 {
-  font-size: 54px;
+  font-size: 60px;
   line-height: 60px;
   margin: 0 auto;
   font-weight: bold;
@@ -77,10 +81,12 @@ h1 {
 }
 
 .wind,
-.humidity,
-h6 {
+.humidity {
+  position: relative;
+  bottom: 23px;
+  margin: 0px;
   font-size: 20px;
-  margin: 10px 0px 0px 0px;
+  color: #fff;
 }
 
 .far {
@@ -94,10 +100,10 @@ h6 {
   font-size: 85px;
   text-align: right;
   line-height: 60px;
-  width: 240px;
-  margin: 0px;
+  width: 270px;
   padding: 10px 0px 0px 0px;
   font-weight: bold;
+  margin: 0px;
 }
 
 .f,
@@ -110,9 +116,15 @@ h6 {
 }
 
 .date-time,
-.city,
+.city {
+  text-align: right;
+}
+
 #weather {
   text-align: right;
+  color: #000;
+  padding: 8px 0px 0px 0px;
+  margin: 0px;
 }
 
 a {
@@ -128,6 +140,11 @@ a {
 }
 
 #button-loc {
-  background-color: rgba(237, 139, 40, 0.3);
+  background: #92D48E;
   border-radius: 5px;
+
+}
+
+h1.city {
+  padding: 25px 0px 2px 0px;
 }

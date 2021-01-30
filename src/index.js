@@ -1,11 +1,11 @@
 // date and time
 
-function formatDate (timestamp) {
+function formatDate(timestamp) {
   let now = new Date(timestamp);
-  
+
   let days = ["Sun.", "Mon.", "Tue.", "Wed.", "Thur.", "Fri.", "Sat."];
   let day = days[now.getDay()];
-  
+
   let months = [
     "Jan",
     "Feb",
@@ -26,7 +26,7 @@ function formatDate (timestamp) {
 
   let year = now.getFullYear();
 
-  return `${day} ${month} ${date}, ${year}`
+  return `${day} ${month} ${date}, ${year}`;
 }
 
 function theTime() {
@@ -34,7 +34,7 @@ function theTime() {
   let hours = now.getHours();
   let minutes = (now.getMinutes() < 10 ? "0" : "") + now.getMinutes();
 
-  return `${hours}:${minutes}`
+  return `${hours}:${minutes}`;
 }
 
 /////////////////
@@ -45,19 +45,15 @@ function theTime() {
 
 function displayTemp(response) {
   document.querySelector("h1").innerHTML = response.data.name;
-  document.querySelector("#current-temp").innerHTML = Math.round(
-    response.data.main.temp
-  );
-  document.querySelector(".wind").innerHTML = Math.round(
-    response.data.wind.speed
-  );
-  document.querySelector(".humidity").innerHTML = Math.round(
-    response.data.main.humidity
-  );
+  document.querySelector("#current-temp").innerHTML = Math.round(response.data.main.temp);
+  document.querySelector(".wind").innerHTML = "Wind: " + Math.round(response.data.wind.speed) + " mph";
+  document.querySelector(".humidity").innerHTML = "Humidity: " + Math.round(response.data.main.humidity) + "%";
   document.querySelector("#weather").innerHTML = response.data.weather[0].main;
-  console.log(response.data);
   document.querySelector(".fullDate").innerHTML = formatDate(response.data.dt * 1000);
-  document.querySelector(".time").innerHTML = theTime(response.data.dt * 1000)
+  document.querySelector(".time").innerHTML = theTime(response.data.dt * 1000);
+  document.querySelector("#main-icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+
+  console.log(response.data);
 }
 
 function searchEngine(city) {
