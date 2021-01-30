@@ -1,43 +1,42 @@
 // date and time
 
-let now = new Date();
-let hours = now.getHours();
+function formatDate (timestamp) {
+  let now = new Date(timestamp);
+  
+  let days = ["Sun.", "Mon.", "Tue.", "Wed.", "Thur.", "Fri.", "Sat."];
+  let day = days[now.getDay()];
+  
+  let months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  let month = months[now.getMonth()];
 
-function minutesWithZero() {
-  return (now.getMinutes() < 10 ? "0" : "") + now.getMinutes();
+  let date = now.getDate();
+
+  let year = now.getFullYear();
+
+  return `${day} ${month} ${date}, ${year}`
 }
-let minutes = minutesWithZero();
 
-let theTime = `${hours}:${minutes}`;
+function theTime() {
+  let now = new Date();
+  let hours = now.getHours();
+  let minutes = (now.getMinutes() < 10 ? "0" : "") + now.getMinutes();
 
-let days = ["Sun.", "Mon.", "Tue.", "Wed.", "Thur.", "Fri.", "Sat."];
-let day = days[now.getDay()];
+  return `${hours}:${minutes}`
+}
 
-let months = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-];
-let month = months[now.getMonth()];
-
-let date = now.getDate();
-let year = now.getFullYear();
-let theDate = `${day} ${month} ${date}, ${year}`;
-
-let dateField = document.querySelector(".fullDate");
-dateField.innerHTML = `${theDate}`;
-
-let timeField = document.querySelector(".time");
-timeField.innerHTML = `${theTime}`;
 /////////////////
 /////////////////
 /////////////////
@@ -56,6 +55,9 @@ function displayTemp(response) {
     response.data.main.humidity
   );
   document.querySelector("#weather").innerHTML = response.data.weather[0].main;
+  console.log(response.data);
+  document.querySelector(".fullDate").innerHTML = formatDate(response.data.dt * 1000);
+  document.querySelector(".time").innerHTML = theTime(response.data.dt * 1000)
 }
 
 function searchEngine(city) {
