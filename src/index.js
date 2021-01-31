@@ -51,9 +51,25 @@ function displayTemp(response) {
   document.querySelector("#weather").innerHTML = response.data.weather[0].main;
   document.querySelector(".fullDate").innerHTML = formatDate(response.data.dt * 1000);
   document.querySelector(".time").innerHTML = theTime(response.data.dt * 1000);
-  document.querySelector("#main-icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 
+  let iconId = response.data.weather[0].id;
+  placeIcon(iconId);
   console.log(response.data);
+}
+
+function placeIcon(iconId) {
+  let iconElement = document.querySelector("#main-icon");
+  let now = new Date();
+  let hours = now.getHours();
+  let amPm = ""
+
+  if (hours >= 5 && hours < 18) {
+    amPm = "day";
+  } else {
+    amPm = "night";
+  }
+
+  iconElement.setAttribute("class", `wi wi-owm-${amPm}-${iconId}`);
 }
 
 function searchEngine(city) {

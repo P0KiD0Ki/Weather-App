@@ -42,12 +42,11 @@ body {
 }
 
 #main-icon {
-  width: 150px;
-  display: block;
-  margin: 0px auto;
   padding: 0px;
-  position: relative;
-  bottom: 30px;
+  margin: 0px;
+  font-size: 120px;
+  width: 270px;
+  text-align: center;
 }
 
 .col-4 {
@@ -83,10 +82,11 @@ h1 {
 .wind,
 .humidity {
   position: relative;
-  bottom: 23px;
+  bottom: 5px;
   margin: 0px;
   font-size: 20px;
   color: #fff;
+
 }
 
 .far {
@@ -140,11 +140,10 @@ a {
 }
 
 #button-loc {
-  background: #92D48E;
+  background: #92d48e;
   border-radius: 5px;
-
 }
 
 h1.city {
-  padding: 25px 0px 2px 0px;
+  padding: 15px 0px 2px 0px;
 }
