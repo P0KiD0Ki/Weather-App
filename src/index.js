@@ -65,7 +65,7 @@ function displayTemp(response) {
   document.querySelector(".time").innerHTML = theTime(response.data.dt * 1000);
 
   let temp = document.querySelector("#current-temp");
-  let fahrenheitTemp = response.data.main.temp
+  fahrenheitTemp = response.data.main.temp;
   temp.innerHTML = Math.round(fahrenheitTemp);
 
   let iconId = response.data.weather[0].id;
@@ -101,7 +101,6 @@ function findCity(event) {
   let city = document.querySelector(".textbox").value;
   searchEngine(city);
 }
-
 
 /////
 ////
@@ -168,7 +167,6 @@ function getLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPositon);
 }
-
 
 /////
 ////

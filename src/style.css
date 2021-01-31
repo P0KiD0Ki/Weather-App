@@ -46,9 +46,9 @@ body {
 }
 
 #main-icon {
-  padding: 0px;
+  padding: 12px 0px 0px 0px;
   margin: 0px;
-  font-size: 120px;
+  font-size: 115px;
   width: 270px;
   text-align: center;
   color: #000;
@@ -125,7 +125,7 @@ h1 {
 }
 
 h1.city {
-  padding: 15px 0px 2px 0px;
+  padding: 10px 0px 2px 0px;
   text-align: right;
   color: #000;
   text-shadow: 1px 1px #fff;
