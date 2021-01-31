@@ -1,3 +1,6 @@
+/////
+////
+///
 // date and time
 
 function formatDate(timestamp) {
@@ -37,22 +40,37 @@ function theTime() {
   return `${hours}:${minutes}`;
 }
 
-/////////////////
-/////////////////
-/////////////////
-/////////////////
+function targetTime(targetTimestampSeconds, targetOffsetSeconds) {
+  let now = new Date();
+  if (targetTimestampSeconds !== null) {
+    now = new Date(targetTimestampSeconds * 1000);
+  }
+}
+
+/////
+////
+///
 // search engine and temps
 
 function displayTemp(response) {
+  let temp = document.querySelector("#current-temp");
   document.querySelector("h1").innerHTML = response.data.name;
-  document.querySelector("#current-temp").innerHTML = Math.round(response.data.main.temp);
-  document.querySelector(".wind").innerHTML = "Wind: " + Math.round(response.data.wind.speed) + " mph";
-  document.querySelector(".humidity").innerHTML = "Humidity: " + Math.round(response.data.main.humidity) + "%";
+  document.querySelector(".wind").innerHTML =
+    "Wind: " + Math.round(response.data.wind.speed) + " mph";
+  document.querySelector(".humidity").innerHTML =
+    "Humidity: " + Math.round(response.data.main.humidity) + "%";
   document.querySelector("#weather").innerHTML = response.data.weather[0].main;
-  document.querySelector(".fullDate").innerHTML = formatDate(response.data.dt * 1000);
+  document.querySelector(".fullDate").innerHTML = formatDate(
+    response.data.dt * 1000
+  );
   document.querySelector(".time").innerHTML = theTime(response.data.dt * 1000);
 
+  
+  let celsiusTemp = response.data.main.temp;
+  temp.innerHTML = Math.round(celsiusTemp);
+
   let iconId = response.data.weather[0].id;
+
   placeIcon(iconId);
   console.log(response.data);
 }
@@ -61,7 +79,7 @@ function placeIcon(iconId) {
   let iconElement = document.querySelector("#main-icon");
   let now = new Date();
   let hours = now.getHours();
-  let amPm = ""
+  let amPm = "";
 
   if (hours >= 5 && hours < 18) {
     amPm = "day";
@@ -74,7 +92,7 @@ function placeIcon(iconId) {
 
 function searchEngine(city) {
   let apiKey = "7cae0a9d7005e1c52f2d634f98d69293";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(displayTemp);
 }
@@ -85,10 +103,10 @@ function findCity(event) {
   searchEngine(city);
 }
 
-/////////////////
-/////////////////
-/////////////////
-/////////////////
+
+/////
+////
+///
 // 7 day forecast
 let apiUrlForecast =
   "https://api.openweathermap.org/data/2.5/onecall?lat=33&lon=-84&exclude=minutely,hourly,alerts&appid=16fb7fe8628dfdd6476ce112c8b8470c&units=imperial";
@@ -151,32 +169,44 @@ function getLocation(event) {
   navigator.geolocation.getCurrentPosition(showPositon);
 }
 
+/////
+////
+///
+//fahrenheit and celsius conversion functions
+
+function convertFahrenheit(event) {
+  event.preventDefault();
+  let temp = document.querySelector("#current-temp");
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  temp.innerHTML = Math.round(fahrenheitTemp);
+}
+
+function convertCelsius(event) {
+  event.preventDefault();
+  let temp = document.querySelector("#current-temp");
+  temp.innerHTML = Math.round(celsiusTemp);
+}
+
+/////
+////
+///
+//global variables
+let celsiusTemp = null;
+
 let textboxInput = document.querySelector("#search-form");
 textboxInput.addEventListener("submit", findCity);
 
 let locator = document.querySelector("#button-loc");
 locator.addEventListener("click", getLocation);
 
+let fahr = document.querySelector("#f-link");
+fahr.addEventListener("click", convertFahrenheit);
+
+let celc = document.querySelector("#c-link");
+celc.addEventListener("click", convertCelsius);
+
+/////
+////
+///
+//display on load
 searchEngine("Atlanta");
-
-/////////////////
-/////////////////
-/////////////////
-/////////////////
-// fahr to cels
-// function convertFahrenheit(event) {
-//   event.preventDefault();
-//   document.querySelector("#current-temp").innerHTML =
-// }
-
-// function convertCelsius(event) {
-//   event.preventDefault();
-//   let temp = document.querySelector("#current-temp");
-//   temp.innerHTML = 3.9;
-// }
-
-// let fahr = document.querySelector("#f-link");
-// fahr.addEventListener("click", convertFahrenheit);
-
-// let cels = document.querySelector("#c-link");
-// cels.addEventListener("click", convertCelsius);
