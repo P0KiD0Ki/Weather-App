@@ -1,7 +1,7 @@
 /////
 ////
 ///
-// date and time
+// date and time formatting
 
 function formatDate(timestamp) {
   let now = new Date(timestamp);
@@ -50,10 +50,9 @@ function targetTime(targetTimestampSeconds, targetOffsetSeconds) {
 /////
 ////
 ///
-// search engine and temps
+// search engine and display functions
 
 function displayTemp(response) {
-  let temp = document.querySelector("#current-temp");
   document.querySelector("h1").innerHTML = response.data.name;
   document.querySelector(".wind").innerHTML =
     "Wind: " + Math.round(response.data.wind.speed) + " mph";
@@ -65,9 +64,9 @@ function displayTemp(response) {
   );
   document.querySelector(".time").innerHTML = theTime(response.data.dt * 1000);
 
-  
-  let celsiusTemp = response.data.main.temp;
-  temp.innerHTML = Math.round(celsiusTemp);
+  let temp = document.querySelector("#current-temp");
+  let fahrenheitTemp = response.data.main.temp
+  temp.innerHTML = Math.round(fahrenheitTemp);
 
   let iconId = response.data.weather[0].id;
 
@@ -92,7 +91,7 @@ function placeIcon(iconId) {
 
 function searchEngine(city) {
   let apiKey = "7cae0a9d7005e1c52f2d634f98d69293";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
   axios.get(apiUrl).then(displayTemp);
 }
@@ -108,6 +107,7 @@ function findCity(event) {
 ////
 ///
 // 7 day forecast
+
 let apiUrlForecast =
   "https://api.openweathermap.org/data/2.5/onecall?lat=33&lon=-84&exclude=minutely,hourly,alerts&appid=16fb7fe8628dfdd6476ce112c8b8470c&units=imperial";
 
@@ -169,6 +169,7 @@ function getLocation(event) {
   navigator.geolocation.getCurrentPosition(showPositon);
 }
 
+
 /////
 ////
 ///
@@ -177,21 +178,22 @@ function getLocation(event) {
 function convertFahrenheit(event) {
   event.preventDefault();
   let temp = document.querySelector("#current-temp");
-  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
   temp.innerHTML = Math.round(fahrenheitTemp);
 }
 
 function convertCelsius(event) {
   event.preventDefault();
   let temp = document.querySelector("#current-temp");
-  temp.innerHTML = Math.round(celsiusTemp);
+  let tempCelsius = Math.round((fahrenheitTemp - 32) * (5 / 9));
+  temp.innerHTML = Math.round(tempCelsius);
 }
 
 /////
 ////
 ///
 //global variables
-let celsiusTemp = null;
+
+let fahrenheitTemp = null;
 
 let textboxInput = document.querySelector("#search-form");
 textboxInput.addEventListener("submit", findCity);
@@ -208,5 +210,6 @@ celc.addEventListener("click", convertCelsius);
 /////
 ////
 ///
-//display on load
+//displays on load
+
 searchEngine("Atlanta");

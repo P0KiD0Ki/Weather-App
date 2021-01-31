@@ -33,12 +33,16 @@ body {
   font-size: 25px;
   padding: 0px 10px;
   font-weight: bold;
+  color: #000;
+
 }
 
 .temp {
   font-size: 20px;
   text-align: right;
   padding: 0px 10px;
+  color: #fff;
+  text-shadow: 0.5px 0.5px #000;
 }
 
 #main-icon {
@@ -47,6 +51,8 @@ body {
   font-size: 120px;
   width: 270px;
   text-align: center;
+  color: #000;
+  text-shadow: 2px 2px #fff;
 }
 
 .col-4 {
@@ -72,11 +78,16 @@ h1 {
   font-weight: bold;
   padding: 0px, 5px;
   text-transform: capitalize;
+  color: #fff;
+  text-shadow: 2px 2px #000;
 }
 
 .date-time {
   font-size: 20px;
   margin: 0;
+  text-align: right;
+  color: #000;
+  text-shadow: 1px 1px #fff;
 }
 
 .wind,
@@ -86,7 +97,7 @@ h1 {
   margin: 0px;
   font-size: 20px;
   color: #fff;
-
+  text-shadow: 0.5px 0.5px #000;
 }
 
 .far {
@@ -94,6 +105,8 @@ h1 {
   font-size: 130px;
   width: 178px;
   text-align: center;
+  color: #000;
+  text-shadow: 1px 1px #fff;
 }
 
 .current-temp {
@@ -106,6 +119,18 @@ h1 {
   margin: 0px;
 }
 
+#current-temp {
+  color: #000;
+  text-shadow: 2px 2px #fff;
+}
+
+h1.city {
+  padding: 15px 0px 2px 0px;
+  text-align: right;
+  color: #000;
+  text-shadow: 1px 1px #fff;
+}
+
 .f,
 .c,
 .line {
@@ -115,16 +140,12 @@ h1 {
   top: -50px;
 }
 
-.date-time,
-.city {
-  text-align: right;
-}
 
 #weather {
   text-align: right;
-  color: #000;
   padding: 8px 0px 0px 0px;
   margin: 0px;
+
 }
 
 a {
@@ -144,6 +165,4 @@ a {
   border-radius: 5px;
 }
 
-h1.city {
-  padding: 15px 0px 2px 0px;
-}
+
