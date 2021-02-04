@@ -19,8 +19,8 @@
       integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="src/style.css" />
     <link rel="stylesheet" href="src/weather-icons.min.css" />
+    <link rel="stylesheet" href="src/style.css" />
     <title>SheCodes Weather App</title>
   </head>
 
@@ -101,7 +101,8 @@
         </h6>
         <h1 class="city">Atlanta</h1>
         <h6 id="weather">Sunny</h6>
-        <h2 class="current-temp"><span id="current-temp">55</span><a href="#" id=f-link span class="f">°F</span></a><span class="line">|</span><a href="#" id=c-link span class="c">°C</span></a></h2>
+        <h2 class="current-temp"><span id="current-temp">55</span>
+          <a href="#" id=f-link class="active">°F</a><span class="line">|</span><a href="#" id=c-link >°C</a></h2>
         <i class="" id="main-icon" ></i><br><br>
 
           <span class="wind">Wind: 5 mph</span> <br />
@@ -109,7 +110,7 @@
         
       </div>
     </div>
-   <div title="Link to GitHub Repository"><span class="foot"><a href="https://github.com/P0KiD0Ki/Weather-App" target="_blank">Coded by Perla Oki </a></span></div>
+   <div title="Link to GitHub Repository"><a href="https://github.com/P0KiD0Ki/Weather-App" target="_blank" class="foot">Coded by Perla Oki </a></div>
   </body>
   <script src="src/index.js"></script>
 </html>
