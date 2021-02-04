@@ -161,6 +161,10 @@ h1.city {
   border-radius: 5px;
 }
 
+#button {
+  border-radius: 5px;
+}
+
 a#f-link.active {
   color: black;
   cursor: default;

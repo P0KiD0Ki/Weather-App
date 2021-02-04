@@ -27,9 +27,16 @@
   <body>
     <div class="container">
       <form class="input-box" id="search-form">
-      <input type="search" placeholder="Search a city..." class="textbox" autocomplete="off" autofocus/>
-      <input type="submit" style="display: none;" id="button" value="GO" />
-      <input type="submit" id="button-loc" value="Current Location" /></form>
+        <input
+          type="search"
+          placeholder="Search a city..."
+          class="textbox"
+          autocomplete="off"
+          autofocus
+        />
+        <input type="submit" id="button" value="🔎" />
+        <input type="submit" id="button-loc" value="Current Location" />
+      </form>
       <div class="row">
         <div class="col-4">
           <span class="day-of-week">S:</span>
@@ -41,7 +48,7 @@
       </div>
       <div class="row">
         <div class="col-4">
-          <span class="day-of-week" >M:</span>
+          <span class="day-of-week">M:</span>
           <i class="fas fa-cloud-sun"></i>
           <span class="temp">
             <span class="mon-hi">46</span>° / <span class="mon-lo">36</span>°
@@ -101,16 +108,25 @@
         </h6>
         <h1 class="city">Atlanta</h1>
         <h6 id="weather">Sunny</h6>
-        <h2 class="current-temp"><span id="current-temp">55</span>
-          <a href="#" id=f-link class="active">°F</a><span class="line">|</span><a href="#" id=c-link >°C</a></h2>
-        <i class="" id="main-icon" ></i><br><br>
+        <h2 class="current-temp">
+          <span id="current-temp">55</span>
+          <a href="#" id="f-link" class="active">°F</a
+          ><span class="line">|</span><a href="#" id="c-link">°C</a>
+        </h2>
+        <i class="" id="main-icon"></i><br /><br />
 
-          <span class="wind">Wind: 5 mph</span> <br />
-          <span class="humidity">Humidity: 5%</span>
-        
+        <span class="wind">Wind: 5 mph</span> <br />
+        <span class="humidity">Humidity: 5%</span>
       </div>
     </div>
-   <div title="Link to GitHub Repository"><a href="https://github.com/P0KiD0Ki/Weather-App" target="_blank" class="foot">Coded by Perla Oki </a></div>
+    <div title="Link to GitHub Repository">
+      <a
+        href="https://github.com/P0KiD0Ki/Weather-App"
+        target="_blank"
+        class="foot"
+        >Coded by Perla Oki
+      </a>
+    </div>
   </body>
   <script src="src/index.js"></script>
 </html>
