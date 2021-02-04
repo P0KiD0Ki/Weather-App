@@ -12,10 +12,9 @@ body {
   height: 550px;
   padding: 20px;
   margin: 20px auto 0px;
-  background: url(https://i.imgur.com/Ne6UQg5.jpg) no-repeat;
+  background: url(https://i.imgur.com/pIonLFu.png) no-repeat;
   font-family: "Open Sans Condensed", sans-serif;
   border-radius: 10px;
-  
 }
 
 .row {
@@ -33,9 +32,8 @@ body {
 .day-of-week {
   font-size: 25px;
   padding: 0px 10px;
-  font-weight: bold;
-  color: #000;
-
+  color: #fff;
+  text-shadow: 0.5px 0.5px #000;
 }
 
 .temp {
@@ -72,6 +70,7 @@ body {
   font-family: "Open Sans Condensed", sans-serif;
   border-radius: 10px;
 }
+
 h1 {
   font-size: 60px;
   line-height: 60px;
@@ -101,13 +100,13 @@ h1 {
   text-shadow: 0.5px 0.5px #000;
 }
 
-.far {
-  padding: 5px 0px;
-  font-size: 130px;
-  width: 178px;
+.fas {
+  padding: 0px;
+  font-size: 20px;
+  width: 50px;
   text-align: center;
-  color: #000;
-  text-shadow: 1px 1px #fff;
+  color: #fff;
+  text-shadow: 0.5px 0.5px #000;
 }
 
 .current-temp {
@@ -132,25 +131,20 @@ h1.city {
   text-shadow: 1px 1px #fff;
 }
 
-.f,
-.c,
+#f-link,
+#c-link,
 .line {
   text-align: right;
   font-size: 20px;
   position: relative;
   top: -50px;
+  text-decoration: none;
 }
-
 
 #weather {
   text-align: right;
   padding: 8px 0px 0px 0px;
   margin: 0px;
-
-}
-
-a {
-  text-decoration: none;
 }
 
 .foot {
@@ -159,6 +153,7 @@ a {
   font-size: 20px;
   text-align: center;
   margin: 0 auto;
+  text-decoration: none;
 }
 
 #button-loc {
@@ -166,4 +161,17 @@ a {
   border-radius: 5px;
 }
 
+a#f-link.active {
+  color: black;
+  cursor: default;
+}
 
+a#c-link.active {
+  color: black;
+  cursor: default;
+}
+
+
+#f-link .active:hover {
+  text-decoration: none;
+}

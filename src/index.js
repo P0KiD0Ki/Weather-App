@@ -177,6 +177,8 @@ function convertFahrenheit(event) {
   event.preventDefault();
   let temp = document.querySelector("#current-temp");
   temp.innerHTML = Math.round(fahrenheitTemp);
+  cels.classList.remove("active");
+  fahr.classList.add("active");
 }
 
 function convertCelsius(event) {
@@ -184,6 +186,8 @@ function convertCelsius(event) {
   let temp = document.querySelector("#current-temp");
   let tempCelsius = Math.round((fahrenheitTemp - 32) * (5 / 9));
   temp.innerHTML = Math.round(tempCelsius);
+  fahr.classList.remove("active");
+  cels.classList.add("active");
 }
 
 /////
@@ -202,8 +206,8 @@ locator.addEventListener("click", getLocation);
 let fahr = document.querySelector("#f-link");
 fahr.addEventListener("click", convertFahrenheit);
 
-let celc = document.querySelector("#c-link");
-celc.addEventListener("click", convertCelsius);
+let cels = document.querySelector("#c-link");
+cels.addEventListener("click", convertCelsius);
 
 /////
 ////
