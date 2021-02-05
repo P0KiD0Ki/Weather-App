@@ -50,7 +50,7 @@ function targetTime(targetTimestampSeconds, targetOffsetSeconds) {
 /////
 ////
 ///
-// search engine and display functions
+// search engine and displays
 
 function displayTemp(response) {
   document.querySelector("h1").innerHTML = response.data.name;
@@ -105,6 +105,29 @@ function findCity(event) {
 /////
 ////
 ///
+//fahrenheit and celsius conversion functions
+
+function convertFahrenheit(event) {
+  event.preventDefault();
+  let temp = document.querySelector("#current-temp");
+  temp.innerHTML = Math.round(fahrenheitTemp);
+  cels.classList.remove("active");
+  fahr.classList.add("active");
+}
+
+function convertCelsius(event) {
+  event.preventDefault();
+  let temp = document.querySelector("#current-temp");
+  let tempCelsius = Math.round((fahrenheitTemp - 32) * (5 / 9));
+  temp.innerHTML = Math.round(tempCelsius);
+  fahr.classList.remove("active");
+  cels.classList.add("active");
+}
+
+
+/////
+////
+///
 // 7 day forecast
 
 let apiUrlForecast =
@@ -154,7 +177,10 @@ function onLoadForecast(response) {
     response.data.daily[6].temp.min
   );
 }
+
 axios.get(apiUrlForecast).then(onLoadForecast);
+
+
 
 function showPositon(position) {
   let apiKey = "16fb7fe8628dfdd6476ce112c8b8470c";
@@ -168,46 +194,27 @@ function getLocation(event) {
   navigator.geolocation.getCurrentPosition(showPositon);
 }
 
-/////
-////
-///
-//fahrenheit and celsius conversion functions
 
-function convertFahrenheit(event) {
-  event.preventDefault();
-  let temp = document.querySelector("#current-temp");
-  temp.innerHTML = Math.round(fahrenheitTemp);
-  cels.classList.remove("active");
-  fahr.classList.add("active");
-}
-
-function convertCelsius(event) {
-  event.preventDefault();
-  let temp = document.querySelector("#current-temp");
-  let tempCelsius = Math.round((fahrenheitTemp - 32) * (5 / 9));
-  temp.innerHTML = Math.round(tempCelsius);
-  fahr.classList.remove("active");
-  cels.classList.add("active");
-}
 
 /////
 ////
 ///
 //global variables
 
+let locator = document.querySelector("#button-loc");
+locator.addEventListener("click", getLocation);
+
 let fahrenheitTemp = null;
 
 let textboxInput = document.querySelector("#search-form");
 textboxInput.addEventListener("submit", findCity);
-
-let locator = document.querySelector("#button-loc");
-locator.addEventListener("click", getLocation);
 
 let fahr = document.querySelector("#f-link");
 fahr.addEventListener("click", convertFahrenheit);
 
 let cels = document.querySelector("#c-link");
 cels.addEventListener("click", convertCelsius);
+
 
 /////
 ////
