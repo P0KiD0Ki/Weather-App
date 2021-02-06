@@ -30,6 +30,8 @@ body {
 }
 
 .day-of-week {
+  position: relative;
+  top: 2px;
   font-size: 25px;
   padding: 0px 10px;
   color: #fff;
