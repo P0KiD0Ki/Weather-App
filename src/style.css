@@ -178,7 +178,20 @@ a#c-link.active {
   cursor: default;
 }
 
-
 #f-link .active:hover {
   text-decoration: none;
+}
+
+#sun-icon,
+#mon-icon,
+#tues-icon,
+#wed-icon,
+#thurs-icon,
+#fri-icon,
+#sat-icon {
+  width: 40px;
+}
+
+div.row {
+  margin: 6px;
 }
