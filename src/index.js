@@ -88,9 +88,14 @@ function placeIcon(iconId) {
   iconElement.setAttribute("class", `wi wi-owm-${amPm}-${iconId}`);
 }
 
-// function forecastIcon(iconId2) {
-//   let foreIcon =
-// }
+/////
+////
+///
+// error function
+
+function errorFunction() {
+  alert("😬 I love Narnia, but that's not a real place either. Please try again!")
+}
 
 /////
 ////
@@ -192,7 +197,9 @@ function displayForecast(response) {
     `https://www.weatherbit.io/static/img/icons/${response.data.data[6].weather.icon}.png`
   );
   satIcon.setAttribute("alt", response.data.data[6].weather.description);
+
 }
+
 
 /////
 ////
@@ -203,7 +210,7 @@ function searchEngine(city) {
   let apiKey = "7cae0a9d7005e1c52f2d634f98d69293";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
-  axios.get(apiUrl).then(displayTemp);
+  axios.get(apiUrl).then(displayTemp).catch(errorFunction);
 
   let forecastKey = "13ce2da2cd2d4da6b6a30677bd0ecc0d";
   let forecastUrl = `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${forecastKey}&units=I`;
