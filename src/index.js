@@ -40,12 +40,12 @@ function theTime() {
   return `${hours}:${minutes}`;
 }
 
-function targetTime(targetTimestampSeconds, targetOffsetSeconds) {
-  let now = new Date();
-  if (targetTimestampSeconds !== null) {
-    now = new Date(targetTimestampSeconds * 1000);
-  }
-}
+// function targetTime(targetTimestampSeconds, targetOffsetSeconds) {
+//   let now = new Date();
+//   if (targetTimestampSeconds !== null) {
+//     now = new Date(targetTimestampSeconds * 1000);
+//   }
+// }
 
 /////
 ////
