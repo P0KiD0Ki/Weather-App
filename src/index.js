@@ -50,7 +50,7 @@ function targetTime(targetTimestampSeconds, targetOffsetSeconds) {
 /////
 ////
 ///
-// search engine and displays
+// displays
 
 function displayTemp(response) {
   document.querySelector("h1").innerHTML = response.data.name;
@@ -71,7 +71,6 @@ function displayTemp(response) {
   let iconId = response.data.weather[0].id;
 
   placeIcon(iconId);
-  console.log(response.data);
 }
 
 function placeIcon(iconId) {
@@ -89,12 +88,83 @@ function placeIcon(iconId) {
   iconElement.setAttribute("class", `wi wi-owm-${amPm}-${iconId}`);
 }
 
+// function forecastIcon(iconId2) {
+//   let foreIcon = 
+// }
+
+/////
+////
+///
+// 7 day forecast
+
+  
+function displayForecast(response) {
+  document.querySelector(".sun-hi").innerHTML = Math.round(
+    response.data.data[0].app_max_temp
+  );
+  document.querySelector(".sun-lo").innerHTML = Math.round(
+    response.data.data[0].app_min_temp
+  );
+  document.querySelector(".mon-hi").innerHTML = Math.round(
+    response.data.data[1].app_max_temp
+  );
+  document.querySelector(".mon-lo").innerHTML = Math.round(
+    response.data.data[1].app_min_temp
+  );
+  document.querySelector(".tues-hi").innerHTML = Math.round(
+    response.data.data[2].app_max_temp
+  );
+  document.querySelector(".tues-lo").innerHTML = Math.round(
+    response.data.data[2].app_min_temp
+  );
+  document.querySelector(".wed-hi").innerHTML = Math.round(
+    response.data.data[3].app_max_temp
+  );
+  document.querySelector(".wed-lo").innerHTML = Math.round(
+    response.data.data[3].app_min_temp
+  );
+  document.querySelector(".thur-hi").innerHTML = Math.round(
+    response.data.data[4].app_max_temp
+  );
+  document.querySelector(".thur-lo").innerHTML = Math.round(
+    response.data.data[4].app_min_temp
+  );
+  document.querySelector(".fri-hi").innerHTML = Math.round(
+    response.data.data[5].app_max_temp
+  );
+  document.querySelector(".fri-lo").innerHTML = Math.round(
+    response.data.data[5].app_min_temp
+  );
+  document.querySelector(".sat-hi").innerHTML = Math.round(
+    response.data.data[6].app_max_temp
+  );
+  document.querySelector(".sat-lo").innerHTML = Math.round(
+    response.data.data[6].app_min_temp
+  );
+  
+  console.log(response);
+}
+
+/////
+////
+///
+//search engine
+
 function searchEngine(city) {
   let apiKey = "7cae0a9d7005e1c52f2d634f98d69293";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
   axios.get(apiUrl).then(displayTemp);
+
+  let forecastKey = "13ce2da2cd2d4da6b6a30677bd0ecc0d"
+  let forecastUrl = `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${forecastKey}&units=I`
+
+  axios.get(forecastUrl).then(displayForecast);
 }
+
+// function forecastEngine(city) {
+
+// }
 
 function findCity(event) {
   event.preventDefault();
@@ -125,68 +195,17 @@ function convertCelsius(event) {
 }
 
 
-/////
-////
-///
-// 7 day forecast
-
-let apiUrlForecast =
-  "https://api.openweathermap.org/data/2.5/onecall?lat=33&lon=-84&exclude=minutely,hourly,alerts&appid=16fb7fe8628dfdd6476ce112c8b8470c&units=imperial";
-
-function onLoadForecast(response) {
-  document.querySelector(".sun-hi").innerHTML = Math.round(
-    response.data.daily[0].temp.max
-  );
-  document.querySelector(".sun-lo").innerHTML = Math.round(
-    response.data.daily[0].temp.min
-  );
-  document.querySelector(".mon-hi").innerHTML = Math.round(
-    response.data.daily[1].temp.max
-  );
-  document.querySelector(".mon-lo").innerHTML = Math.round(
-    response.data.daily[1].temp.min
-  );
-  document.querySelector(".tues-hi").innerHTML = Math.round(
-    response.data.daily[2].temp.max
-  );
-  document.querySelector(".tues-lo").innerHTML = Math.round(
-    response.data.daily[2].temp.min
-  );
-  document.querySelector(".wed-hi").innerHTML = Math.round(
-    response.data.daily[3].temp.max
-  );
-  document.querySelector(".wed-lo").innerHTML = Math.round(
-    response.data.daily[3].temp.min
-  );
-  document.querySelector(".thur-hi").innerHTML = Math.round(
-    response.data.daily[4].temp.max
-  );
-  document.querySelector(".thur-lo").innerHTML = Math.round(
-    response.data.daily[4].temp.min
-  );
-  document.querySelector(".fri-hi").innerHTML = Math.round(
-    response.data.daily[5].temp.max
-  );
-  document.querySelector(".fri-lo").innerHTML = Math.round(
-    response.data.daily[5].temp.min
-  );
-  document.querySelector(".sat-hi").innerHTML = Math.round(
-    response.data.daily[6].temp.max
-  );
-  document.querySelector(".sat-lo").innerHTML = Math.round(
-    response.data.daily[6].temp.min
-  );
-}
-
-axios.get(apiUrlForecast).then(onLoadForecast);
-
-
-
 function showPositon(position) {
   let apiKey = "16fb7fe8628dfdd6476ce112c8b8470c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
 
   axios.get(apiUrl).then(displayTemp);
+
+  let forecastKey = "13ce2da2cd2d4da6b6a30677bd0ecc0d"
+  let forecastUrl = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${position.coords.latitude}&lon=${position.coords.longitude}&key=${forecastKey}&units=I`
+
+  axios.get(forecastUrl).then(displayForecast);
+
 }
 
 function getLocation(event) {
@@ -214,7 +233,6 @@ fahr.addEventListener("click", convertFahrenheit);
 
 let cels = document.querySelector("#c-link");
 cels.addEventListener("click", convertCelsius);
-
 
 /////
 ////
