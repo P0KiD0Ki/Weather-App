@@ -146,6 +146,7 @@ function displayForecast(response) {
     response.data.data[6].app_min_temp
   );
 
+  console.log(response);
   ///
   // forecast icons
 
